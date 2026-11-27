@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" version="24.8.0">
+  <diagram name="Контекст новых функций" id="page1">
+    <mxGraphModel grid="1" gridSize="10" page="1" pageWidth="2400" pageHeight="1450">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="C4 — контекст интеграции «Умного дома»" style="rounded=1;whiteSpace=wrap;html=0;fontSize=16;spacing=8;strokeColor=#64748b;fillColor=#fff2cc;" parent="1" vertex="1">
+          <mxGeometry as="geometry" x="50" y="30" width="2250" height="90" />
+        </mxCell>
+        <mxCell id="resident" value="Собственник&#10;[Person]&#10;Открывает дверь и шлагбаум" style="rounded=1;whiteSpace=wrap;html=0;fontSize=16;spacing=8;strokeColor=#64748b;fillColor=#dae8fc;" parent="1" vertex="1">
+          <mxGeometry as="geometry" x="80" y="500" width="270" height="150" />
+        </mxCell>
+        <mxCell id="manager" value="Менеджер ЖКУ&#10;[Person]&#10;Подтверждает права на объект" style="rounded=1;whiteSpace=wrap;html=0;fontSize=16;spacing=8;strokeColor=#64748b;fillColor=#dae8fc;" parent="1" vertex="1">
+          <mxGeometry as="geometry" x="760" y="170" width="340" height="150" />
+        </mxCell>
+        <mxCell id="company" value="PropDevelopment&#10;[Software System]&#10;Приложение собственников, управление допусками, аудит" style="rounded=1;whiteSpace=wrap;html=0;fontSize=16;spacing=8;strokeColor=#64748b;fillColor=#dae8fc;" parent="1" vertex="1">
+          <mxGeometry as="geometry" x="700" y="480" width="460" height="280" />
+        </mxCell>
+        <mxCell id="partner" value="Платформа партнёра&#10;[External Software System]&#10;Распознавание лица/номера и управление устройствами" style="rounded=1;whiteSpace=wrap;html=0;fontSize=16;spacing=8;strokeColor=#64748b;fillColor=#eeeeee;" parent="1" vertex="1">
+          <mxGeometry as="geometry" x="1550" y="480" width="500" height="280" />
+        </mxCell>
+        <mxCell id="devices" value="Домофон и шлагбаум&#10;[External Devices]&#10;Считывание, открытие, события" style="rounded=1;whiteSpace=wrap;html=0;fontSize=16;spacing=8;strokeColor=#64748b;fillColor=#eeeeee;" parent="1" vertex="1">
+          <mxGeometry as="geometry" x="1550" y="1080" width="500" height="170" />
+        </mxCell>
+        <mxCell id="note" value="Фото и биометрические шаблоны не хранятся в PropDevelopment.&#10;Обычный доступ сохраняется без использования биометрии." style="rounded=1;whiteSpace=wrap;html=0;fontSize=16;spacing=8;strokeColor=#64748b;fillColor=#fff2cc;" parent="1" vertex="1">
+          <mxGeometry as="geometry" x="700" y="1110" width="550" height="140" />
+        </mxCell>
+        <mxCell id="use" value="Доступ и согласие&#10;HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;strokeColor=#475569;fontSize=14;labelBackgroundColor=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" parent="1" source="resident" target="company" edge="1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0" y="-60" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="manage" value="Права своей УК" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;strokeColor=#475569;fontSize=14;labelBackgroundColor=none;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" parent="1" source="manager" target="company" edge="1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="90" y="0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="commands" value="Разрешения и команды&#10;HTTPS / OAuth 2.0 / mTLS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;strokeColor=#475569;fontSize=14;labelBackgroundColor=none;exitX=1;exitY=0.25;entryX=0;entryY=0.25;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" parent="1" source="company" target="partner" edge="1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0" y="-30" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="events" value="Результаты и события&#10;HTTPS / mTLS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;strokeColor=#475569;fontSize=14;labelBackgroundColor=none;exitX=0;exitY=0.75;entryX=1;entryY=0.75;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" parent="1" source="partner" target="company" edge="1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0" y="32" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="physical" value="Распознавание / команды / события" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;strokeColor=#475569;fontSize=14;labelBackgroundColor=none;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitDx=0;exitDy=0;entryDx=0;entryDy=0;startArrow=block;" parent="1" source="partner" target="devices" edge="1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="150" y="0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="enrollment" value="Прямой разрешённый канал: регистрация биометрии и видеовызов" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;strokeColor=#475569;fontSize=14;labelBackgroundColor=none;exitX=0.5;exitY=1;entryX=0.15;entryY=1;exitDx=0;exitDy=0;entryDx=0;entryDy=0;dashed=1;" parent="1" source="resident" target="partner" edge="1">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="215" y="940" />
+              <mxPoint x="1625" y="940" />
+            </Array>
+            <mxPoint as="offset" x="0" y="25" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
